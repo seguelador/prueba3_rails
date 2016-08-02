@@ -2,20 +2,26 @@
 
 <h1>Listing Songs</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
+      <th>Add to Playlist</th>
       <th>Name</th>
       <th>Duration</th>
-      <th colspan="3"></th>
+      <th>Genre</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
     </tr>
   </thead>
 
   <tbody>
     <% @songs.each do |song| %>
       <tr>
+        <td><a href="#">Add</a></td>
         <td><%= song.name %></td>
         <td><%= song.duration %></td>
+        <td><%= song.genre.name %></td>
         <td><%= link_to 'Show', song %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
