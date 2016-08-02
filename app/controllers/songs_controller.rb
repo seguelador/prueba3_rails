@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :set_song, only: [:show, :edit, :update, :destroy, :add_to_playlist]
   before_action :authenticate_user!
 
   # GET /songs
@@ -70,6 +70,6 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:name, :duration, :genre_id)
+      params.require(:song).permit(:name, :duration, :genre_id, :song_id)
     end
 end
